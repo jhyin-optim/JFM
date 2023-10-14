@@ -2,12 +2,19 @@
 This is a demo of DFPM for solving the nearest doubly stochastic matrix problem
 
 \begin{align}\label{1.1}
+
 \begin{array}{ll}
+
 \min\limits_{X\in \mathbb{R}^{n\times n}} & \frac{1}{2}\|X-\hat{X}\|^2 \\
+
 {\rm s.t.} & Xe=e, \\
+
 & X^{\top}e=e, \\
+
 & X\geq 0,
+
 \end{array}
+
 \end{align}
 
 using a Jacobian-free method based on a scaling memoryless DFP formula, described in the following paper
