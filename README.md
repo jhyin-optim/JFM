@@ -5,13 +5,13 @@ This is a demo of DFPM for solving the nearest doubly stochastic matrix problem
 
 \begin{array}{ll}
 
-\min\limits_{X\in \mathbb{R}^{n\times n}} & \frac{1}{2}\|X-\hat{X}\|^2 \\
+\min\limits_{X\in \mathbb{R}^{n\times n}} & \frac{1}{2}\|X-\hat{X}\|^2 \\\\
 
-{\rm s.t.} & Xe=e, \\
+{\rm s.t.} & Xe=e,\\\\
 
-& X^{\top}e=e, \\
+& X^{\top}e=e, \\\\
 
-& X\geq 0,
+& X\geq 0,\\\\
 
 \end{array}
 
