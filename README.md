@@ -1,5 +1,5 @@
 # JFM
-This is a demo of DFPM for solving the nearest doubly stochastic matrix problem
+This is a demo of a Jacobian-free method for solving the nearest doubly stochastic matrix problem
 
 \begin{align}\label{1.1}
 
