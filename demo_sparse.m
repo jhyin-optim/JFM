@@ -25,8 +25,8 @@
 % Numerical Algorithms, 2021, 88(1): 389-418.
 % [4] Yin J, Jian J, Jiang X. A generalized hybrid CGPM-based algorithm for solving large-scale convex constrained equations with applications to image restoration. Journal of Computational and Applied Mathematics, 2021, 391: 113423.ons to image restoration. 
 % Journal of Computational and Applied Mathematics, 2021, 391: 113423.
-% [5.1] Òü½­»ª, ¼ò½ğ±¦, ½­ÏÛÕä. Í¹Ô¼Êø·Ç¹â»¬·½³Ì×é»ùÓÚ×ÔÊÊÓ¦ÏßËÑË÷µÄÆ×Ìİ¶ÈÍ¶Ó°Ëã·¨. 
-% ¼ÆËãÊıÑ§, 2020, 42(4): 457-471.
+% [5.1] å°¹æ±Ÿå, ç®€é‡‘å®, æ±Ÿç¾¡ç. å‡¸çº¦æŸéå…‰æ»‘æ–¹ç¨‹ç»„åŸºäºè‡ªé€‚åº”çº¿æœç´¢çš„è°±æ¢¯åº¦æŠ•å½±ç®—æ³•. 
+% è®¡ç®—æ•°å­¦, 2020, 42(4): 457-471.
 % [5.2] Yin, J.H., Jian, J.B., Jiang, X.Z.: A spectral gradient projection algorithm for convex constrained
 % nonsmooth equations based on an adaptive line search. Math. Numer. Sin. (Chinese) 2020, 42(4), 457-471.
 
@@ -94,15 +94,15 @@ for index=1:np
     % Optimization (2022). DOI 10.1007/s10898-022-01215-2
     [T1,NFF1,NI1,G1] = JFM(y0,Fun,'DFP',4,para1);
     
-    disp('Starting SMBFGS') % Ullah, N., Sabi¡¯u, J., Shah, A.: A derivative-free scaling memoryless 
+    disp('Starting SMBFGS') % Ullah, N., Sabiâ€™u, J., Shah, A.: A derivative-free scaling memoryless 
     % Broyden-Fletcher-Goldfarb-Shanno method for solving a system of monotone nonlinear equations. 
     % Numerical Linear Algebra with Applications 28(5), e2374 (2021)
     [T2,NFF2,NI2,G2] = JFM(y0,Fun,'SMBFGS',4,para1);
 
-    disp('Starting PDFP') % UR Rehman, M., Sabi¡¯u, J., Sohaib, M., Shah, A.: A projection-based derivative free
+    disp('Starting PDFP') % UR Rehman, M., Sabiâ€™u, J., Sohaib, M., Shah, A.: A projection-based derivative free
     % DFP approach for solving system of nonlinear convex constrained monotone equations with image restoration          
-    % applications. Journal of Applied Mathematics and Computing 69(5), 3645¨C3673 (2023)
-    [T3,NFF3,NI3,G3] = JFM(y0,Fun,'PDFP',4,para1); 
+    % applications. Journal of Applied Mathematics and Computing 69(5), 3645â€“3673 (2023)
+    [T3,NFF3,NI3,G3] = JFM(y0,Fun,'PDFP',2,para1); 
     
     disp('Starting JFM1') % the proposed method with model=4
     [T4,NFF4,NI4,G4] = JFM(y0,Fun,'JFM1',4,para2);
@@ -116,16 +116,16 @@ for index=1:np
     F(index,:) = [NFF1,NFF2,NFF3,NFF4,NFF5];
     N(index,:) = [NI1,NI2,NI3,NI4,NI5]; 
 end
-%% ¹Ø±ÕÎÄ¼ş
+%% å…³é—­æ–‡ä»¶
 fclose(fid_tex);
 
-%% »­Í¼
-clf;   %clfÉ¾³ıµ±Ç°Í¼ĞÎ´°¿ÚÖĞ¡¢
-       %%¾ä±úÎ´±»Òş²Ø(¼´ËüÃÇµÄHandleVisibilityÊôĞÔÎªon)µÄÍ¼ĞÎ¶ÔÏó
+%% ç”»å›¾
+clf;   %clfåˆ é™¤å½“å‰å›¾å½¢çª—å£ä¸­ã€
+       %%å¥æŸ„æœªè¢«éšè—(å³å®ƒä»¬çš„HandleVisibilityå±æ€§ä¸ºon)çš„å›¾å½¢å¯¹è±¡
 figure(1);
 %subplot(2,2,1);
 perf(T,'logplot');
-%title('Ê±¼äĞÔÄÜ');
+%title('æ—¶é—´æ€§èƒ½');
 %set(gca,'ylim',[0.3,1]);
 xlabel('\tau','Interpreter','tex');
 ylabel('\rho(\tau)','Interpreter','tex');
@@ -133,15 +133,15 @@ legend('DFP','SMBFGS','PDFP','JFM1','JFM2');
 % %subplot(2,2,2);
 figure(2);
 perf(F,'logplot');
-%title('Ä¿±êº¯Êı¼ÆËãĞÔÄÜ');
+%title('ç›®æ ‡å‡½æ•°è®¡ç®—æ€§èƒ½');
 % set(gca,'ylim',[0.1,1]);
-xlabel('\tau','Interpreter','tex');                     %% ¸øxÖá¼Ó×¢
-ylabel('\rho(\tau)','Interpreter','tex');               %% ¸øyÖá¼Ó×¢
+xlabel('\tau','Interpreter','tex');                     %% ç»™xè½´åŠ æ³¨
+ylabel('\rho(\tau)','Interpreter','tex');               %% ç»™yè½´åŠ æ³¨
 legend('DFP','SMBFGS','PDFP','JFM1','JFM2');
 %subplot(2,2,3);
 figure(3);
 perf(N,'logplot');
-%title('µü´ú´ÎÊıĞÔÄÜ');
+%title('è¿­ä»£æ¬¡æ•°æ€§èƒ½');
 %set(gca,'ylim',[0.5,1]);
 xlabel('\tau','Interpreter','tex');
 ylabel('\rho(\tau)','Interpreter','tex');
@@ -151,4 +151,4 @@ legend('DFP','SMBFGS','PDFP','JFM1','JFM2');
 % %axes
 % %set(gca,'xtick',[],'ytick',[]) 
 % %figure(2);
-% %perf(T,'logplot');% ´Ë¡°logplot¡±ÈÎºÎÒ»¸öÈ·¶¨µÄ³£Êı¶¼¿ÉÒÔ£¬Ö»Òª±£Ö¤ÓĞÁ½¸öÊäÈë±äÁ¿
+% %perf(T,'logplot');% æ­¤â€œlogplotâ€ä»»ä½•ä¸€ä¸ªç¡®å®šçš„å¸¸æ•°éƒ½å¯ä»¥ï¼Œåªè¦ä¿è¯æœ‰ä¸¤ä¸ªè¾“å…¥å˜é‡
